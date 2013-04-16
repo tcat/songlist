@@ -1,0 +1,260 @@
+@light_green : #b3eb0a;
+@light_green_hover : #b4d20a;
+@text_shadow_x:0px;
+@text_shadow_y:2px;
+@text_shadow_blur:3px;
+@table_border_radius:4px;
+
+.light_green_background{
+	background:@light_green;
+	
+}
+.light_green_background_hover{
+	background:@light_green_hover;
+}
+.transitions{
+	transition:background .3s, box-shadow .3s, color .1s;
+	-webkit-transition:background .3s, box-shadow .3s, color .1s;
+}
+.light_green{
+	
+	box-shadow:0 0 20px @light_green;
+	-webkit-box-shadow:0 0 20px @light_green;
+}
+.light_green_hover{
+	
+	box-shadow:0 0 10px @light_green_hover;
+	-webkit-box-shadow:0 0 10px @light_green_hover;
+
+}
+.button_style{
+	padding:5px 10px;
+	display:inline-block;
+	cursor:pointer;
+	text-decoration:none;
+	text-align:center;
+	min-width:50px;
+	border-radius:5px;
+	font-weight:bold;
+	text-shadow:@text_shadow_x @text_shadow_y @text_shadow_blur #fff;
+
+}
+
+
+
+.control_panel{
+		position:absolute;
+		width:210px;
+		left:50%;
+		margin-left:-105px;		
+		bottom:5px;
+		padding:10px 0;
+		text-align:center;
+
+
+		.control_buttons{
+			
+			margin:0 auto;
+			
+			.left_btn{
+				float:left;
+			}
+			.right_btn{
+				float:right;
+			}
+			a.button, a.button:visited, a.button:active{
+				
+				.light_green;
+				.light_green_background;
+				.button_style;
+				.transitions;
+				&:hover { 
+					.light_green_hover;
+					.light_green_background_hover;
+					.transitions;
+				}
+			
+			}
+
+	
+		}
+	}
+	
+.tables_style{
+	background:#000;
+	color:#fff;
+	font-family:Arial;
+	font-size:14px;
+	border-radius: 2px;
+	box-shadow: 0 0 20px rgba(0,0,0,0.9);
+	box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+	
+	table{
+		margin:0 auto 0;
+		background:#303030;
+		border:#515151 1px solid;
+		box-shadow: 0 0 10px rgba(255,255,255,0.8);
+		border-radius:@table_border_radius;
+		overflow:hidden;
+		border-collapse: separate;
+		tr{
+			border-spacing:0;
+		}
+		th{
+			cursor:default;
+				color:@light_green;
+				text-shadow:@text_shadow_x @text_shadow_y @text_shadow_blur @light_green;
+		}
+
+
+	}
+}
+.app_main_window{
+
+	.tables_style;
+	
+	width:550px; 
+	height:330px; 
+	margin:25px auto 0;
+	padding-top:25px;
+	
+	position:relative;	
+	z-index:999;
+	
+	
+	
+	
+	
+	table{
+		width:500px;
+		border-collapse: separate;
+	
+		tr{
+			
+			.transitions;
+			height:25px;
+			
+			
+			td{
+				border-top:2px solid #515151;
+				font-weight:bold;
+				cursor:pointer;
+				
+			}	
+			td,th {
+				border-right:2px solid #515151;
+				text-align:center;
+					
+			}
+			td:last-child,th:last-child{
+				border-right:none;
+			}
+			
+			
+		}
+		
+		tr:last-of-type td:last-of-type{
+			border-bottom-right-radius: @table_border_radius;
+		}
+		tr:last-of-type td:first-of-type{
+			border-bottom-left-radius: @table_border_radius;
+		}
+			
+		
+
+		tr:hover td,tr.active td{
+			color:#000;
+			cursor:pointer;
+			.light_green_hover;
+			.light_green_background_hover;
+			.transitions;
+		}	
+		
+
+	}
+	
+}
+
+.main_dialog{
+	position:absolute;
+	left:0; 
+	top:170px;
+	width:100%;
+	height:auto;
+	text-align:center;
+	transition-property: top;
+    transition-duration: 1s;
+	-webkit-transition-property: top;
+	-webkit-transition-duration: 1s;
+}
+.dialog_window{
+	.tables_style;
+	position:relative;
+	margin:auto;
+	width:275px; 
+	height:165px;
+	z-index:1;
+	padding-top:15px;
+	
+	
+	.dialog_window_close{
+		
+		position:absolute;
+		cursor:pointer;
+		font-weight:bold;
+		text-shadow:@text_shadow_x @text_shadow_y @text_shadow_blur @light_green;
+		top:5px;
+		right:5px;
+		color:@light_green;
+		&:hover { 
+					color:@light_green_hover;
+					text-shadow:@text_shadow_x @text_shadow_y @text_shadow_blur @light_green_hover;
+				}
+	
+	}
+	
+
+	table{
+		width:235px;
+		height:100px;
+		tr{
+			height:20px;
+			th{
+				width:150px;
+			}
+			th,td{
+				text-align:left;
+				padding:0 5px;
+				border-color:transparent;
+				
+				input{
+					height:10px;
+					width:100px;
+					padding:0;
+					margin:0;
+					font-size:10px;
+					line-height:10px;
+				}
+			} 
+		}
+	}
+	.dialog_panel{
+		.control_panel;
+		width:160px;
+		margin-left:-80px;
+		bottom:0;
+		margin-bottom:10px;
+		padding:0;
+	
+	}
+	
+}
+.main_dialog.show{
+	top:395px;
+	transition-property: top;
+    transition-duration: 1s;
+	-webkit-transition-property: top;
+	-webkit-transition-duration: 1s;
+}

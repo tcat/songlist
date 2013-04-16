@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Songs Collection</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet/less" href="css/style.less">
+  
+  
+  <script data-main="js/main" src="js/libs/require.js"></script>
+
+</head>
+    <body>
+
+      <script type="text/x-handlebars">
+        <div class="app_main_window">
+			<table>
+				<tr>
+					<th>
+						Track name
+					</th>
+						
+					<th>
+						Artist name
+					</th>
+					<th>
+						Album name
+					</th>
+					<th>
+						Length
+					</th>
+				</tr>
+				
+				
+				{{#each item in App.songsListController.content}}
+						
+						 <tr {{bindAttr class="item.isActive:active"}} {{action "setActive" target="item"}}>
+
+								<td>{{item.track_name}}</td>
+								<td>{{item.artist}}</td>
+								<td>{{item.album}}</td>
+								<td>{{item.length}}</td>
+							
+						</tr>
+												 
+				{{/each}}
+						
+				
+		   		
+				
+				
+		
+			</table>
+		
+		   <div class="control_panel">
+				<div class="control_buttons">
+					<a class="button left_btn" {{action "showDialog" target="App.dialogWindow"}}>Add</a>
+					<a class="button right_btn" {{action "deleteSong" target="App.songsListController"}}>Delete</a>
+				</div>
+		   </div> 
+		  
+		
+	  </div>
+  	 <div {{bindAttr class=":main_dialog App.dialogWindow.isShown:show"}}>
+			   <div class="dialog_window">
+				   <div class="dialog_window_close" {{action "hideDialog" target="App.dialogWindow"}}>X</div>
+				   <table>
+						<tr>
+							<th>
+								Track name
+							</th>
+							<td>
+								{{view Ember.TextField valueBinding="App.dialogWindow.inputFields.track_name"}}
+							</td>	
+						</tr>	
+						<tr>
+							<th>
+								Artist name
+							</th>
+							<td>
+								{{view Ember.TextField valueBinding="App.dialogWindow.inputFields.artist"}}
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Album name
+							</th>
+							<td>
+								{{view Ember.TextField valueBinding="App.dialogWindow.inputFields.album"}}
+							</td>
+						</tr>
+						<tr>
+							<th>
+								Length
+							</th>
+							<td>
+								{{view Ember.TextField valueBinding="App.dialogWindow.inputFields.length"}}
+							</td>
+						</tr>
+																					
+					</table>
+				   <div class="dialog_panel">
+						<div class="control_buttons">
+							<a class="button left_btn" {{action "addSong" target="App.dialogWindow"}}>Submit</a>
+							<a class="button right_btn" {{action "clearDialog" target="App.dialogWindow"}}>Clear</a>
+						</div>
+		   			</div> 	
+				</div>
+			</div>
+  
+ 
+  </script>
+      
+    </body>
+</html>
