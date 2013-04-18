@@ -32,32 +32,47 @@ define(["ember","models/Song"], function(Em, Song){
 			}
 			else alert('Sorry. Songlist is full');
 	   },
+
 	  /**
+	  * @description Set active state of a clicked Song. 
 	  *
-	  * @function breakAllisAcive Set all active songs to not active.
-	  * @this {App.songsListController}
+	  * @function setActive
+	  * @this {App.Song}
 	  * 
-	  *
-	  */	   
-	   breakAllisAcive:function(){
-		   
-		  this.content.filterProperty('isActive', true).setEach('isActive', false);
-		 
-	   },
+	  */	
+
+		setActive:function(evt){
+			
+		  console.log(evt.isActive);
+		  
+		  	var isActive=evt.get('isActive');
+
+		  	/**
+		   	* @property {boolean} isActive - Indicates whether the song in table is active(If it clicked).
+		   	*/
+		  	if(!isActive) {
+				this.content.filterProperty('isActive', true).setEach('isActive', false);
+				evt.set('isActive',true);
+
+		  	}
+			var isActive=evt.get('isActive');
+		  console.log(this);
+		  
+	   },   
 	  /**
 	  *
 	  * @function deleteSong Delete active song(Where isActive flag is true).
 	  * @this {App.songsListController}
 	  * 
 	  *
-	  */   
+	  */
 	   deleteSong:function(){
 		   /**
 		   *
 		   * @description Get all active songs(Where isActive flag is true.)
 		   *
 		   */
-			var deletedSong = this.content.findProperty('isActive',true);
+			var deletedSong = this.findProperty('isActive',true);
 			
 			if (deletedSong){
 				if (confirm("Are you sure?")) {  

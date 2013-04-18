@@ -16,8 +16,9 @@
 					</th>
 				</tr>
 				
-				
-				{{view App.SongsTableListView}}
+				{{#each App.songsListController.content}}
+					{{view App.SongsTableListView}}
+                {{/each}}
 						
 			
 			</table>
