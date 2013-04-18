@@ -1,0 +1,46 @@
+<div {{bindAttr class=":main_dialog App.dialogWindowController.isShown:show"}}>
+   <div class="dialog_window">
+       <div class="dialog_window_close" {{action "hideDialog" target="App.dialogWindowController"}}>X</div>
+       <table>
+            <tr>
+                <th>
+                    Track name
+                </th>
+                <td>
+                    {{view App.DialogTextFieldView valueBinding="App.dialogWindowController.inputFields.track_name"}}
+                </td>	
+            </tr>	
+            <tr>
+                <th>
+                    Artist name
+                </th>
+                <td>
+                    {{view App.DialogTextFieldView valueBinding="App.dialogWindowController.inputFields.artist"}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Album name
+                </th>
+                <td>
+                    {{view App.DialogTextFieldView valueBinding="App.dialogWindowController.inputFields.album"}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Length
+                </th>
+                <td>
+                    {{view App.DialogTextFieldView valueBinding="App.dialogWindowController.inputFields.length"}}
+                </td>
+            </tr>
+                                                                        
+        </table>
+        <div class="dialog_panel">
+            <div class="control_buttons">
+                <a class="button left_btn" {{action "SubmitSong" target="App.dialogWindowController"}}>Submit</a>
+                <a class="button right_btn" {{action "clearDialog" target="App.dialogWindowController"}}>Clear</a>
+            </div>
+        </div> 	
+    </div>
+</div>

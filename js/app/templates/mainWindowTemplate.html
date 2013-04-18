@@ -1,0 +1,34 @@
+<div class="app_main_window">
+			<table>
+				<tr>
+					<th>
+						Track name
+					</th>
+						
+					<th>
+						Artist name
+					</th>
+					<th>
+						Album name
+					</th>
+					<th>
+						Length
+					</th>
+				</tr>
+				
+				
+				{{view App.SongsTableListView}}
+						
+			
+			</table>
+		
+		   <div class="control_panel">
+				<div class="control_buttons">
+					<a class="button left_btn" {{action "showDialog" target="App.dialogWindowController"}}>Add</a>
+					<a class="button right_btn" {{action "deleteSong" target="App.songsListController"}}>Delete</a>
+				</div>
+		   </div> 
+		  
+		
+</div>
+{{view App.DialogWindowView}}

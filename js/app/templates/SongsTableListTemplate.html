@@ -1,0 +1,10 @@
+{{#each item in App.songsListController.content}}
+						
+	<tr {{bindAttr class="item.isActive:active"}} {{action "setActive" target="item"}}>
+	        <td>{{item.track_name}}</td>
+            <td>{{item.artist}}</td>
+            <td>{{item.album}}</td>
+            <td>{{item.length}}</td>
+							
+	</tr>
+{{/each}}
