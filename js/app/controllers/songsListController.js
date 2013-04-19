@@ -43,8 +43,6 @@ define(["ember","models/Song"], function(Em, Song){
 
 		setActive:function(evt){
 			
-		  console.log(evt.isActive);
-		  
 		  	var isActive=evt.get('isActive');
 
 		  	/**
@@ -56,7 +54,7 @@ define(["ember","models/Song"], function(Em, Song){
 
 		  	}
 			var isActive=evt.get('isActive');
-		  console.log(this);
+		 
 		  
 	   },   
 	  /**
@@ -72,7 +70,7 @@ define(["ember","models/Song"], function(Em, Song){
 		   * @description Get all active songs(Where isActive flag is true.)
 		   *
 		   */
-			var deletedSong = this.findProperty('isActive',true);
+			var deletedSong = this.content.findProperty('isActive',true);
 			
 			if (deletedSong){
 				if (confirm("Are you sure?")) {  

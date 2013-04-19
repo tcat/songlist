@@ -1,7 +1,30 @@
-    <tr {{bindAttr class="isActive:active"}} {{action setActive this target="App.songsListController"}}>
-	        <td>{{track_name}}</td>
-            <td>{{artist}}</td>
-            <td>{{album}}</td>
-            <td>{{length}}</td>
-							
-	</tr>
+<table>
+				<tr>
+					<th>
+						Track name
+					</th>
+						
+					<th>
+						Artist name
+					</th>
+					<th>
+						Album name
+					</th>
+					<th>
+						Length
+					</th>
+				</tr>
+				
+				{{#each App.songsListController.content}}
+					    <tr {{bindAttr class="isActive:active"}} {{action setActive this target="App.songsListController"}}>
+                                <td>{{track_name}}</td>
+                                <td>{{artist}}</td>
+                                <td>{{album}}</td>
+                                <td>{{length}}</td>
+                                                
+                        </tr>
+                {{/each}}
+						
+			
+</table>    
+    

@@ -8,11 +8,16 @@ define([
   
   "text!templates/mainWindowTemplate.html"
 ], function(Em, DialogTextFieldView, SongsTableListView,DialogWindowView,dialogWindowController, songsListController, mainTemplate){
-  var mainWindow = Em.View.extend({
-    template: Em.Handlebars.compile(mainTemplate),
-	templateName:"MySongList",
+	/**
+	*
+	* @description View of main window
+	*
+	*/	   
+	  var mainWindow = Em.View.extend({
+		template: Em.Handlebars.compile(mainTemplate),
+		templateName:"MySongList",
+		
+	  }).append();
 	
-  });
-
-  return mainWindow;
+	  return mainWindow;
 });
