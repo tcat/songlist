@@ -17,7 +17,7 @@ define([
 		template: Em.Handlebars.compile(mainTemplate),
 		templateName:"MySongList",
 		
-	  }).append();
+	  });
 	
 	  return mainWindow;
 });
